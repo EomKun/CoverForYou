@@ -1,0 +1,11 @@
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-brand src {
+    height: 100%;
+}
+
+.m-login-container {
+    margin-top: 6em;
+}
