@@ -20,17 +20,23 @@
     <script src="/js/client.js"></script>
 </head>
 <body>
-    <% if("not_login" == page_status) { %>
     <nav class="navbar navbar-expand-sm bg-success justify-content-center">
+    <% if(!page_status || "signup" == page_status) { %>    
         <img class="img-fluid" alt="LOGO" src="/img/CoverForYou_logo_w.png">
+    <% } else { %>
+        good
+    <% } %>
     </nav>
 
+    <% if(!page_status || "signup" == page_status) { %>
     <div class="container m-login-container">
         <div class="row">
             <div class="col-sm-6 mx-auto">
                 <div class="card">
+                    <!-- 로그인 화면 -->
+                    <% if(!page_status) { %>
                     <div class="card-head text-center m-4">
-                        <img class="img-fluid" alt="login" src="/img/Login.png">
+                        <img class="img-fluid" alt="signin" src="/img/signin.png">
                     </div>
                     <div class="card-body">
                         <form>
@@ -63,11 +69,57 @@
                             </div>
                         </form>
                     </div>
+                    <!-- 회원가입 화면 -->
+                    <% } else { %>
+                    <div class="card-head text-center m-4">
+                        <img class="img-fluid" alt="signup" src="/img/signup.png">
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class='far fa-envelope'></i></span>
+                                    </div>
+                                    <input type="text" id="user_email" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class='fas fa-key'></i></span>
+                                    </div>
+                                    <input type="password" id="user_pw" class="form-control" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">@</span>
+                                    </div>
+                                    <input type="text" id="user_name" class="form-control" placeholder="username">
+                                </div>
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox"> I agree on CoverForYou's Policy
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <div class="row mx-auto">
+                                    <input type="button" id="register_btn" class="btn btn-success col-sm-6" value="Register!">
+                                    <input type="button" id="back_btn" class="btn btn-default col-sm-6" value="back">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <% } %>
                 </div>
             </div>
         </div>
     </div>
-    <% } else if("logined == page_status") { %>
+
+    <% } else if("logined == page_status") {%>
     <nav class="navbar navbar-expand-sm bg-success justify-content-center">
         <a class="navbar-brand" href="#"><img src="/img/CoverForYou_logo_w.png"></a>
     </nav>
