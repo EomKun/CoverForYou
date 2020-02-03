@@ -24,11 +24,15 @@ app.use(session({
 const indexRouter = require("./routes/index");
 const signinRouter = require("./routes/signin");
 const signupRouter = require("./routes/signup");
+const signoutRouter = require("./routes/signout");
+const userInfoRouter = require("./routes/user_info");
 
 // use routers
 app.use("/",indexRouter);
 app.use("/signin", signinRouter);
 app.use("/signup", signupRouter);
+app.use("/signout", signoutRouter);
+app.use("/user_info", userInfoRouter);
 
 app.listen(3000, () => {
     console.log(`node version: ${process.version}`);

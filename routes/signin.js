@@ -3,19 +3,24 @@ const router = express.Router();
 
 const user = require("./user");
 
-router.post("/", (req, res) => {
-    let msg;
-    if(user.email == req.body.email){
-        const email = req.body.email;
-        const pw = req.body.pw;
+router.get("/", (req, res) => {
+    const email = req.query.email;
+    const pw = req.query.email;
+    let login_ok = false;
 
-        msg = `${email}님 환영합니다(님 비번 ${pw}임 ㅋㅋ)`;
-        
-    } else {
-        msg = `가입이나 하쇼`;
+    for(let i = 0; i < user.length; i++) {
+        if(user[i].email == email) {
+            req.session.email = email;
+            req.session.page_status = "logined";
+            req.session.name = user[i].name;
+            
+            login_ok = true;
+            res.render("index", {page_status: req.session.page_status });
+        }
     }
-
-    res.json({ msg });
+    
+    if(!login_ok)
+        res.json({ msg: `가입이나 하쇼` }); ;
 });
 
 module.exports = router;

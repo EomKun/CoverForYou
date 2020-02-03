@@ -20,14 +20,36 @@
     <script src="/js/client.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-success justify-content-center">
+    <nav class="navbar navbar-expand-sm bg-success fixed-top">
     <% if(!page_status || "signup" == page_status) { %>    
+    <div class="mx-auto">
         <img class="img-fluid" alt="LOGO" src="/img/CoverForYou_logo_w.png">
+    </div>
     <% } else { %>
-        good
+    <a class="navbar-brand" href="">
+        <img class="img-fluid" alt="LOGO" src="/img/CoverForYou_logo_w.png">
+    </a>
+        
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class='fas fa-bars' style='color:white'></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+        <ul class="nav">
+            <li class="nav-item mx-1">
+                <a class="nav-link" id="myinfo_btn" href=""><i class='far fa-clipboard' style='font-size:3em;color:white'></i></a>
+            </li>
+            <li class="nav-item mx-1">
+                <a class="nav-link" id="signout_btn" href=""><i class='fas fa-sign-out-alt' style='font-size:3em;color:white'></i></a>
+            </li>
+        </ul>
+    </div>
     <% } %>
     </nav>
 
+    <div id="block"></div>
     <% if(!page_status || "signup" == page_status) { %>
     <div class="container m-login-container">
         <div class="row">
@@ -45,7 +67,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class='far fa-envelope'></i></span>
                                     </div>
-                                    <input type="text" id="user_email" class="form-control" placeholder="Email">
+                                    <input type="text" id="signin_email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -53,7 +75,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class='fas fa-key'></i></span>
                                     </div>
-                                    <input type="password" id="user_pw" class="form-control" placeholder="Password">
+                                    <input type="password" id="signin_pw" class="form-control" placeholder="Password">
                                 </div>
                             </div>
                             <div class="form-group form-check">
@@ -81,7 +103,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class='far fa-envelope'></i></span>
                                     </div>
-                                    <input type="text" id="user_email" class="form-control" placeholder="Email">
+                                    <input type="text" id="signup_email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -89,7 +111,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class='fas fa-key'></i></span>
                                     </div>
-                                    <input type="password" id="user_pw" class="form-control" placeholder="Password">
+                                    <input type="password" id="signup_pw" class="form-control" placeholder="Password">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -97,7 +119,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">@</span>
                                     </div>
-                                    <input type="text" id="user_name" class="form-control" placeholder="username">
+                                    <input type="text" id="signup_name" class="form-control" placeholder="username">
                                 </div>
                             </div>
                             <div class="form-group form-check">
@@ -119,10 +141,125 @@
         </div>
     </div>
 
-    <% } else if("logined == page_status") {%>
-    <nav class="navbar navbar-expand-sm bg-success justify-content-center">
-        <a class="navbar-brand" href="#"><img src="/img/CoverForYou_logo_w.png"></a>
-    </nav>
+    <% } else if("logined" == page_status) {%>
+    <div class="container-fluid col-sm-10 border mb-3">
+        <p>여기 메뉴</p>
+    </div>
+
+    <div class="container-fluid col-sm-10 border">
+        <div class="card-deck my-5">
+            <div class="card bg-primary">
+                <div class="card-body text-center">
+                    <div class="card-header">
+                        <img src="/img/programming_default.png" class="img-thumbnail work_img" alt="work_img">
+                    </div>
+                    <div class="card-body">Content</div>
+                    <div class="card-footer">Footer</div>
+                </div>
+            </div>
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                    <div class="card-header">
+                        <img src="/img/programming_default.png" class="img-thumbnail work_img" alt="work_img">
+                    </div>
+                    <div class="card-body">Content</div>
+                    <div class="card-footer">Footer</div>
+                </div>
+            </div>
+            <div class="card bg-success">
+                <div class="card-body text-center">
+                    <div class="card-header">
+                        <img src="/img/programming_default.png" class="img-thumbnail work_img" alt="work_img">
+                    </div>
+                    <div class="card-body">Content</div>
+                    <div class="card-footer">Footer</div>
+                </div>
+            </div>
+            <div class="card bg-danger">
+                <div class="card-body text-center">
+                    <div class="card-header">
+                        <img src="/img/programming_default.png" class="img-thumbnail work_img" alt="work_img">
+                    </div>
+                    <div class="card-body">Content</div>
+                    <div class="card-footer">Footer</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-deck my-5">
+            <div class="card bg-primary">
+                <div class="card-body text-center">
+                    <div class="card-header">
+                        <img src="/img/programming_default.png" class="img-thumbnail work_img" alt="work_img">
+                    </div>
+                    <div class="card-body">Content</div>
+                    <div class="card-footer">Footer</div>
+                </div>
+            </div>
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                    <div class="card-header">
+                        <img src="/img/programming_default.png" class="img-thumbnail work_img" alt="work_img">
+                    </div>
+                    <div class="card-body">Content</div>
+                    <div class="card-footer">Footer</div>
+                </div>
+            </div>
+            <div class="card bg-success">
+                <div class="card-body text-center">
+                    <div class="card-header">
+                        <img src="/img/programming_default.png" class="img-thumbnail work_img" alt="work_img">
+                    </div>
+                    <div class="card-body">Content</div>
+                    <div class="card-footer">Footer</div>
+                </div>
+            </div>
+            <div class="card bg-danger">
+                <div class="card-body text-center">
+                    <div class="card-header">
+                        <img src="/img/programming_default.png" class="img-thumbnail work_img" alt="work_img">
+                    </div>
+                    <div class="card-body">Content</div>
+                    <div class="card-footer">Footer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } else if("user_info" == page_status) {%>
+    <div class="row col-sm-10 mx-auto">
+        <div class="card border col-sm-3">
+            <div class="card-body text-center">
+                <div class="card-header text-center">
+                    <img src="/img/frog.jpg" class="img-thumbnail profile_img" alt="Profile">
+                </div>
+                <div class="card-body text-rignt"><%= name %></div>
+                <div class="card-footer">Hello</div>
+            </div>
+        </div>
+
+        <div class="container-fluid col-sm-8 border">
+            <ul class="nav nav-tabs text-center" role="tablist">
+                <li class="nav-item col-sm-6">
+                    <a class="nav-link active" data-toggle="tab" href="#new">새소식</a>
+                  </li>
+                  <li class="nav-item col-sm-6">
+                    <a class="nav-link" data-toggle="tab" href="#join_group">가입한 모임</a>
+                  </li>
+              </ul>
+            
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div id="new" class="container tab-pane active"><br>
+                  <h3>HOME</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div id="join_group" class="container tab-pane fade"><br>
+                  <h3>Menu 1</h3>
+                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <% } %>
 </body>
 </html>
